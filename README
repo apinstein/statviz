@@ -1,0 +1,33 @@
+StatViz README
+
+StatViz is hosted on SourceForge:
+
+http://sourceforge.net/projects/statviz/
+
+GETTING STARTED:
+It's a pretty simple program to use... open up example.conf and customize it to your needs.
+
+Then, to execute, simply:
+
+statviz.php --config myconfig.conf
+
+It will report its progress.
+
+VIEWING OUTPUT
+StatViz outputs DOT files. DOT files are text-based graph files that can be rendered by GraphViz.
+
+GraphViz is a freely available software from:
+
+http://graphviz.org/
+
+There are viewers available on most major platforms.
+
+NOTE
+The software has not been heavily tested at this point. I have used it personally on a number of log files from 2-3 domains. The largest file I have analyzed is about 100,000 lines. Because of the nature of the analysis, you don't really need much more than a small period of time (1 week to 1 month depending on traffic) to get a good picture of the aggregate clickstream analysis.
+
+StatViz isn't trying to compete with other log analyzers that show histograms and averages of hits, there are plenty of good solutions already for that need.
+
+FEEDBACK
+We are interested in hearing your feedback. Please visit the SourceForge project site and let us know if you find it useful!
+
+http://sourceforge.net/projects/statviz/

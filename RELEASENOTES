@@ -1,0 +1,12 @@
+StatViz 0.6 - ?/??/2005
+- Fix bug 1203959, https://sourceforge.net/tracker/index.php?func=detail&aid=1203959&group_id=130462&atid=717891
+- Add ability to force session tracks to include certain URLs
+
+StatViz 0.5 - 1/31/2005
+- Various configuration options to skip URLs, EXTENSIONs, ROBOTs, HTTP STATUS CODES
+- Collapse index pages into single URL
+- URLAlias file support to show page titles instead of URLs
+- Option to show only internal referrers
+- Top "Pairs" reporting
+- Top "Sessions" reporting
+- Nicely colorized reports

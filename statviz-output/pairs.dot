@@ -1,0 +1,34 @@
+digraph navipairs {
+            graph [splines=true overlap=false rankdir=TB size="10,8"]
+            node [style=filled]
+            edge [style=bold, arrowsize=2.0]
+                "Direct Link" -> "/webapp/public/pages/home" [label="117", fontcolor="#ff0000" color="#ff0000ff"];
+"/webapp/public/pages/home" -> "/webapp/examples/helloworld/helloWorld" [label="23", fontcolor="#3300cc" color="#3300cc33"];
+"/webapp/examples/helloworld/helloWorld" -> "/webapp/examples/helloworld/helloWorld" [label="17", fontcolor="#2600d9" color="#2600d926"];
+"/webapp/public/pages/home" -> "/webapp/examples/examplemodule/staticPage" [label="15", fontcolor="#2100de" color="#2100de21"];
+"/webapp/examples/examplemodule/staticPage" -> "/webapp/examples/examplemodule/staticPage" [label="15", fontcolor="#2100de" color="#2100de21"];
+"/webapp/public/pages/home" -> "/webapp/www/downloads/phocoa_guide.pdf" [label="11", fontcolor="#1a00e5" color="#1a00e51a"];
+"/webapp/examples/helloworld/helloWorld" -> "/webapp/public/pages/home" [label="7", fontcolor="#1a00e5" color="#1a00e51a"];
+"/docs/" -> "/docs/li_framework-base.html" [label="7", fontcolor="#1a00e5" color="#1a00e51a"];
+"/webapp/examples/helloworld/helloWorld" -> "/webapp/examples/examplemodule/staticPage/" [label="7", fontcolor="#1a00e5" color="#1a00e51a"];
+"/docs/" -> "/docs/blank.html" [label="7", fontcolor="#1a00e5" color="#1a00e51a"];
+"/webapp/public/pages/home" -> "/docs/" [label="7", fontcolor="#1a00e5" color="#1a00e51a"];
+"/webapp/examples/skininfo/skinTypes" -> "/webapp/examples/skininfo/skinTypes/examples" [label="7", fontcolor="#1a00e5" color="#1a00e51a"];
+"/docs/" -> "/docs/packages.html" [label="7", fontcolor="#1a00e5" color="#1a00e51a"];
+"Direct Link" -> "/webapp/examples/examplemodule/allWidgets" [label="6", fontcolor="#1a00e5" color="#1a00e51a"];
+"Direct Link" -> "/webapp/examples/helloworld/helloWorld" [label="6", fontcolor="#1a00e5" color="#1a00e51a"];
+"/webapp/examples/examplemodule/staticPage" -> "/webapp/examples/skininfo/skinTypes" [label="5", fontcolor="#1a00e5" color="#1a00e51a"];
+"Direct Link" [label="Direct Link\n(144 referrals)\n", color="#999966ff", shape=box];
+"/webapp/public/pages/home" [label="/webapp/public/pages/home\n(63 referrals)\n(135 hits)", color="#ff0000ff"];
+"/webapp/examples/helloworld/helloWorld" [label="/webapp/examples/helloworld/helloWorld\n(39 referrals)\n(58 hits)", color="#6e00916e"];
+"/webapp/examples/examplemodule/staticPage" [label="/webapp/examples/examplemodule/staticPage\n(29 referrals)\n(39 hits)", color="#4a00b54a"];
+"/webapp/www/downloads/phocoa_guide.pdf" [label="/webapp/www/downloads/phocoa_guide.pdf\n(16 hits)", color="#1f00e01f"];
+"/docs/" [label="/docs/\n(21 referrals)\n(7 hits)", color="#0e00f10e"];
+"/docs/li_framework-base.html" [label="/docs/li_framework-base.html\n(17 referrals)\n(7 hits)", color="#0e00f10e"];
+"/webapp/examples/examplemodule/staticPage/" [label="/webapp/examples/examplemodule/staticPage/\n(8 referrals)\n(9 hits)", color="#1100ee11"];
+"/docs/blank.html" [label="/docs/blank.html\n(7 hits)", color="#0e00f10e"];
+"/webapp/examples/skininfo/skinTypes" [label="/webapp/examples/skininfo/skinTypes\n(16 referrals)\n(17 hits)", color="#2100de21"];
+"/webapp/examples/skininfo/skinTypes/examples" [label="/webapp/examples/skininfo/skinTypes/examples\n(9 referrals)\n(11 hits)", color="#1500ea15"];
+"/docs/packages.html" [label="/docs/packages.html\n(1 referral)\n(7 hits)", color="#0e00f10e"];
+"/webapp/examples/examplemodule/allWidgets" [label="/webapp/examples/examplemodule/allWidgets\n(11 referrals)\n(12 hits)", color="#1700e817"];
+graph [labelloc=t, label="phocoa.com Top 15 Referrer Graph\n\nDates Analyzed:\nStart: 18/Oct/2005:13:46:51\nEnd: 18/Oct/2005:16:21:11\nTop Pairs account for 264 of 380 clicks (69.47%)\n\nLegend:\nReferrers shown as brown boxes; intensity shows relative number of referrals.\nSite Pages shown in ovals, colored from red to blue, representing popularity of page.\nHit and Referral Counts are totals for period, not just those shown on graph.\n\n"]}

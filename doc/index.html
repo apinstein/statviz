@@ -1,0 +1,88 @@
+<html>
+<head>
+    <title>StatViz - Graphical Clickstream / Path Analysis of Web Traffic</title>
+    <meta name="description" content="StatViz produces visual graphs of your web site, providing clickstream or path analysis in a simple to use way." />
+    <meta name="keywords" content="log analyzer, open source, open source log analyzer, web site statistics, web statistics, web site traffic statistics, web traffic statistics, web stats, web site stats, free web stats, web site traffic statistics, log analysis, logfile analysis, clickstream, click stream, clickstream analysis, path analysis, click paths, click path, dot, neato, graphviz, visual web analysis, web traffic analysis, traffic analysis" />
+    <style type="text/css">
+    body { margin: 15px; }
+    div.screenshot { margin: 10px; text-align: center; font-size: 12px; font-weight: bold;}
+    img.screenshot { border: 1px solid black; }
+    </style>
+</head>
+<body>
+<div style="float: right;">
+<p><b><a href="http://sourceforge.net/project/showfiles.php?group_id=130462">Download StatViz</a></b> | <b><a href="http://sourceforge.net/projects/statviz/">SourceForge StatViz Project Page</a></b></p>
+</div>
+
+<h1>StatViz - Visual Clickstream Analysis</h1>
+<h2>Goals</h2>
+<p>StatViz is a simple program to help visualize the way visitors use your web site. This is sometimes called <b>clickstream</b> or <b>path</b> analysis. Unlike traditional web statistics, the output of StatViz is a graph. The file format of the graph file is <a href="http://graphviz.org/Documentation.php">DOT</a>. These files can be visualized using <a href="http://GraphViz.org">GraphViz</a>.</p>
+
+<h2>Aggregate Clickstream Analysis ("Pairs" report)</h2>
+<div class="screenshot" style="float: right">
+	Example of Aggregate Clickstream Analysis (Referrer -> Hit "Pairs")<br />
+	<a href="statviz-pairs.png"><img class="screenshot" src="statviz-pairs.png" style="width: 400px" /></a>
+</div>
+<p>StatViz analyzes the log by creating a histogram of referrer->hit "pairs". The most popular of these pairs are then expressed as a graph. The graph is colorized and labelled to aid in interpretation.</a>
+<p>StatViz "pairs" graph explained: <b>in a nutshell, run the program, and look at the output. The stuff that catches your eye is how most people are moving to and through your site.</b></p>
+<ul>
+	<li>The graph shows movement through your site as links from one page to another. Each node is a web page, each line is a "click" from one page to the other as indicated by the arrow.</li>
+	<li>The lines are color coded based on the relative popularity of that "click". Popular clicks are shown in red, less popular pages in blue. The number of times that click occurred is shown next to the line.</li>
+	<li>Pages that aren't on your site (external referrers) are shown as brown boxes. The relative frequency of referrals from that is indicated by the darkness of the brown. The darker the box, the more referrals come from that page.</li>
+	<li>Pages on your site are shown as ovals. Once again, these are color-coded by relative frequency of "hits". More popular pages are red, less popular pages are blue.</li>
+	<li>Each page also shows the number of times the page was a referrer to another page, and the number of hits that page got.</li>
+</ul>
+
+<h2>Individual Session Tracks</h2>
+<div class="screenshot" style="float: right">
+	Example of Individual Session Tracks<br />
+	<a href="statviz-session-track.png"><img class="screenshot" src="statviz-session-track.png" style="width: 400px" /></a>
+</div>
+<p>StatViz keeps track of the movements of each individual session in the logfile. The way the session is determined is configurable. By default it now simply uses the IP address. However, you can easily configure StatViz to use a different column as the "unique session ID", for instance from mod_usertrack or a custom session id logged via the Apache notes mechanism. The session track reporter will graph the exact clickstream for the longest (by clicks not time) sessions in the log. This will result in several graphs, and is designed to give a good sampling of how visitors move around the site. If the "Pairs" report above is the 50,000 foot view, this is the on-the-streets view.</p>
+<p>The individual session tracks allow you to really understand how people successfully or unsuccessfully navigate through your site. Studying them is a great way to understand how you could better present information on your site to make your visitors get what they want more efficiently.</p>
+<p>StatViz "session tracks" graph explained:</p>
+<ul>
+	<li>The graph shows movement through your site as links from one page to another. Each node is a web page, each solid line is a "click" from one page to the other as indicated by the arrow.</li>
+	<li>Each line has a number next to it representing which "click" it is in the session track. The time of the "click" is also shown.</li>
+	<li>In some cases you will also see a dashed line with the same number as a click. These "BACK" links indicate that the visitor went back to that page before proceeding.</a>
+	<li>Pages that aren't on your site (external referrers) are shown as brown ovals.</li>
+	<li>The "entry" page is colored green. The "exit" page is colored red. If the entry and exit pages are the same, that page will be red.</li>
+</ul>
+
+<h3>Live Analysis</h3>
+<p>StatViz can actually show you these reports LIVE... If you configure the logfile to "php://stdin" then StatViz will read the log lines from STDIN. It will then periodically generate reports as the log is processed, thus allowing you to watch your traffic patterns in real-time. I am not sure how useful this is yet, but it's definitely fun!</p>
+<p>Setting up live mode is quite simple. Let's say for instance you create a config to analyze your log files normally (offline) and use the following command to process the logs:</p>
+	<blockquote>statviz.php --config mydomain.conf</blockquote>
+<p>To switch to live view, simply do the following:</p>
+	<blockquote><b>tail -f /path/to/mylogfile.log |</b> statviz.php --config mydomain.conf <b>--continuous=20 --logfile=php://stdin</b></blockquote>
+<p>You can even analyze the logfiles remotely with a command like:</p>
+	<blockquote><b>ssh -C user@domain.com "tail -f /path/to/mylogfile.log" |</b> statviz.php --config mydomain.conf <b>--continuous=20 --logfile=php://stdin</b></blockquote>
+<p>I am not sure about all of the GraphViz apps, but <a href="http://www.pixelglow.com/graphviz/">the one for Mac OS X</a> actually will automatically redraw as soon as the DOT file changes, so in this setup you can just sit back and watch your site traffic live.</p>
+
+<h2>License</h2>
+<p>StatViz is licensed under the MIT open source license.</p>
+
+<h2>Links and Resources</h2>
+<ul>
+    <li><a href="http://www.graphviz.org">GraphViz home page</a>.</li>
+    <li>Apache's <a href="http://httpd.apache.org/docs-2.0/mod/mod_usertrack.html">mod_usertrack</a> for generating unique session ID's.</li>
+    <li><a href="http://pathalizer.sourceforge.net/">Pathalizer</a> is similar tool, also hosted on SourceForge.</li>
+    <!--
+    <li>Similar tools:
+        <ul>
+            <li></li>
+            <li></li>
+        </ul>
+        -->
+    </li>
+</ul>
+
+<hr width="90%" />
+<p>Well, that's about all we've got for now! You can <b><a href="http://sourceforge.net/project/showfiles.php?group_id=130462">DOWNLOAD</a></b> the software from our <b><a href="http://sourceforge.net/projects/statviz/">SourceForge StatViz Project Page</a></b>.</p>
+
+<div style="text-align: center; vertical-align: middle">
+    <a href="http://sourceforge.net"><img valign="middle" src="http://sourceforge.net/sflogo.php?group_id=130462&amp;type=5" width="210" height="62" border="0" alt="SourceForge.net Logo" /></a>
+    <a href="http://sourceforge.net/donate/index.php?group_id=130462"><img valign="middle" src="http://images.sourceforge.net/images/project-support.jpg" width="88" height="32" border="0" alt="Support This Project" /></a>
+</div>
+</body>
+</html>
